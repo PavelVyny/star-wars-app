@@ -6,9 +6,9 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
 	return (
 		<>
-			<Navbar bg="light" expand="lg" sticky="top">
+			<Navbar bg="light" expand="lg" sticky="top" className="px-3">
 				<Navbar.Brand as={NavLink} to="/">
-					Y.school store
+					StarWars
         		</Navbar.Brand>
 				<Nav.Link as={NavLink} to="/favorites" className="list__favorites position-relative">
 					Favorites list

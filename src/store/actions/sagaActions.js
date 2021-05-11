@@ -3,6 +3,9 @@ import {
 	LOAD_ITEM,
 	PUT_ITEM,
 	PUT_ITEMS,
+	LOAD_FILTERS,
+	LOAD_ADDITIONAL_WORLD,
+	PUT_ADDITIONAL_WORLD
 
 } from "./Types";
 
@@ -26,7 +29,32 @@ export const LOAD_ITEM_ACTION = name => ({
 	name
 })
 
-export const PUT_ITEM_ACTION = curentItem => ({
+export const PUT_ITEM_ACTION = currentItem => ({
 	type: PUT_ITEM,
-	payload: curentItem
+	payload: currentItem
 });
+
+export const LOAD_FILTERS_ACTION = (searchValue) => ({
+	type: LOAD_FILTERS,
+	searchValue
+})
+
+export const PUT_FILTRED_ITEMS_ACTION = (data) => ({
+	type: PUT_ITEMS,
+	payload: data
+})
+
+export const LOAD_ADDITIONAL_WORLD_ACTION = (homeworld) => {
+	return {
+		type: LOAD_ADDITIONAL_WORLD,
+		homeworld
+	}
+}
+
+export const PUT_ADDITIONAL_WORLD_ACTION = (data) => {
+	return {
+		type: PUT_ADDITIONAL_WORLD,
+		payload: data
+		
+	}
+}

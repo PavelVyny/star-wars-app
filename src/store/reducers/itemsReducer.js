@@ -3,6 +3,9 @@ import {
 	PUT_ITEMS,
 	ADD_ITEM,
 	REMOVE_ITEM,
+	SET_SEARCH_VALUE,
+	PUT_ADDITIONAL_WORLD
+
 } from "../actions/Types";
 import { add, remove } from "../../utils";
 
@@ -10,18 +13,22 @@ const initialState = {
 	pages: 10,
 	page: 1,
 	items: [],
-	curentItem: {},
+	currentItem: {},
+	currentItemIsFeatching: true,
 	favoritesList: [],
+	searchValue: '',
+	personHomeworld: '',
+	films: '',
 };
 
 export default function (state = initialState, action) {
 	switch (action.type) {
 
 		case PUT_ITEMS:
-			return { ...state, items: action.payload.results };
+			return { ...state, items: action.payload.results, };
 
 		case PUT_ITEM:
-			return { ...state, curentItem: action.payload };
+			return { ...state, currentItem: action.payload, currentItemIsFeatching: false };
 
 		case ADD_ITEM: {
 			return { ...state, favoritesList: add(state, action.payload.name) };
@@ -32,6 +39,12 @@ export default function (state = initialState, action) {
 				...state,
 				favoritesList: remove(state, action.payload),
 			};
+
+		case SET_SEARCH_VALUE:
+			return { ...state, searchValue: action.payload }
+
+		case PUT_ADDITIONAL_WORLD:
+			return { ...state, personHomeworld: action.payload };
 
 		default:
 			return state;

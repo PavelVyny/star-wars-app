@@ -3,13 +3,14 @@ import { Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
 import Card from "../UI/Card";
+import styled from "styled-components";
 import Pagination from "../Pagination";
 import { LOAD_ITEMS_ACTION } from "../../store/actions/sagaActions";
 
 
-const PeopleAll = ({ isFavorites }) => {
-	const items = useSelector((state) => state.products.items);
-	const page = useSelector((state) => state.products.page);
+const PeopleAll = () => {
+	const items = useSelector((state) => state.people.items);
+	const page = useSelector((state) => state.people.page);
 
 	const dispatch = useDispatch();
 
@@ -20,8 +21,8 @@ const PeopleAll = ({ isFavorites }) => {
 	}, [dispatch, page])
 
 	return (
-		<>
-			<Row className="mt-5 justify-content-center justify-content-md-between">
+		<ItemWrapper>
+			<Row className="justify-content-center cards">
 				{items ? (
 					items.map((item) => (
 						<Card key={item.name} item={item} />
@@ -33,8 +34,22 @@ const PeopleAll = ({ isFavorites }) => {
 					)}
 			</Row>
 			<Pagination curPage="all-products" />
-		</>
+		</ItemWrapper>
+
 	);
 };
+
+const ItemWrapper = styled(Row)`
+	.cards {
+		display: grid;
+		grid-column-gap: 38px;
+		max-width: calc(100% - 20px);
+		grid-template-columns: repeat(auto-fill,200px);
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+`;
+
+
 
 export default PeopleAll;

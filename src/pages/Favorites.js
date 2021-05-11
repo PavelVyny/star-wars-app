@@ -6,7 +6,7 @@ const Favorites = () => {
 	return (
 		<>
 			<Title title="Favorites" />
-			<PeopleFavorites isFavorites="true" />
+			<PeopleFavorites />
 		</>
 	);
 };

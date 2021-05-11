@@ -3,8 +3,8 @@ import { Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Card from "../UI/Card";
 
-const PeopleFavorites = ({ isFavorites }) => {
-	const items = useSelector((state) => state.products.favoritesList);
+const PeopleFavorites = () => {
+	const items = useSelector((state) => state.people.favoritesList);
 
 
 	return (

@@ -15,6 +15,7 @@ const TitleWrapper = styled(Row)`
 		font-weight: bold;
 		font-size: 48px;
 		text-align: center;
+		margin-bottom: 45px;
 	}
 `;
 

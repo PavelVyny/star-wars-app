@@ -6,8 +6,8 @@ import { LOAD_ITEMS_ACTION } from "../../store/actions/sagaActions";
 
 
 const PaginationComponent = () => {
-	const pages = useSelector((state) => state.products.pages);
-	const currentPage = useSelector((state) => state.products.page);
+	const pages = useSelector((state) => state.people.pages);
+	const currentPage = useSelector((state) => state.people.page);
 	const pagesArr = [...Array.from({ length: pages }, (_, i) => i + 1)];
 
 	const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const PaginationComponent = () => {
 	};
 
 	return (
-		<Pagination className="justify-content-md-center">
+		<Pagination className="justify-content-md-center mt-5">
 			<Pagination.Prev 
 				disabled={(currentPage === 1 ? true : false)}
 				onClick={() => toPrevPage()} />
