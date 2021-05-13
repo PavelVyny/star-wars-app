@@ -5,7 +5,9 @@ import {
 	PUT_ITEMS,
 	LOAD_FILTERS,
 	LOAD_ADDITIONAL_WORLD,
-	PUT_ADDITIONAL_WORLD
+	PUT_ADDITIONAL_WORLD,
+	LOAD_ADDITIONAL_FILMS,
+	PUT_ADDITIONAL_FILMS
 
 } from "./Types";
 
@@ -54,6 +56,21 @@ export const LOAD_ADDITIONAL_WORLD_ACTION = (homeworld) => {
 export const PUT_ADDITIONAL_WORLD_ACTION = (data) => {
 	return {
 		type: PUT_ADDITIONAL_WORLD,
+		payload: data
+		
+	}
+}
+
+export const LOAD_ADDITIONAL_FILMS_ACTION = (films) => {
+	return {
+		type: LOAD_ADDITIONAL_FILMS,
+		films
+	}
+}
+
+export const PUT_ADDITIONAL_FILMS_ACTION = (data) => {
+	return {
+		type: PUT_ADDITIONAL_FILMS,
 		payload: data
 		
 	}

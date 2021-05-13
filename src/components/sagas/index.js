@@ -7,6 +7,7 @@ import {
 	PUT_ITEM_ACTION,
 	PUT_FILTRED_ITEMS_ACTION,
 	PUT_ADDITIONAL_WORLD_ACTION,
+	PUT_ADDITIONAL_FILMS_ACTION,
 
 } from "../../store/actions/sagaActions";
 
@@ -15,6 +16,7 @@ import {
 	LOAD_ITEM,
 	LOAD_FILTERS,
 	LOAD_ADDITIONAL_WORLD,
+	LOAD_ADDITIONAL_FILMS
 
 } from '../../store/actions/Types'
 
@@ -23,7 +25,7 @@ export default function* rootSaga() {
 	yield fork(watchLoadItem)
 	yield fork(watchLoadFilters)
 	yield fork(watchLoadAdditionalWorld)
-	// yield fork(watchLoadAdditionalFilms)
+	yield fork(watchLoadAdditionalFilms)
 
 }
 
@@ -95,18 +97,17 @@ export function* watchLoadAdditionalWorld() {
 }
 
 // get additional films
-// function fetchAdditionalFilms(film) {
-// 	return axios
-// 		.get(`${film}`)
-// }
+function fetchAdditionalFilms(films) {
+	return axios.get(`${films[0]}`)
+}
 
-// function* workerLoadAdditionalWorld(action) {
-// 	const response = yield call(fetchAdditionalWorld, action.homeworld)
-// 	const data = response.data;
+function* workerLoadAdditionalFilms(action) {
+	const response = yield call(fetchAdditionalFilms, action.films)
+	const data = response.data;
 
-// 	yield put(PUT_ADDITIONAL_WORLD_ACTION(data))
-// }
+	yield put(PUT_ADDITIONAL_FILMS_ACTION(data))
+}
 
-// export function* watchLoadAdditionalWorld() {
-// 	yield  takeEvery(LOAD_ADDITIONAL_WORLD, workerLoadAdditionalWorld)
-// }
+export function* watchLoadAdditionalFilms() {
+	yield  takeEvery(LOAD_ADDITIONAL_FILMS, workerLoadAdditionalFilms)
+}

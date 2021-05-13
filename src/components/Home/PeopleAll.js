@@ -42,7 +42,6 @@ const PeopleAll = () => {
 const ItemWrapper = styled(Row)`
 	.cards {
 		display: grid;
-		grid-column-gap: 38px;
 		max-width: calc(100% - 20px);
 		grid-template-columns: repeat(auto-fill,200px);
 		-ms-flex-pack: justify;

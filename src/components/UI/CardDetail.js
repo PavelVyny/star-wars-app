@@ -4,7 +4,7 @@ import AdditionalInfo from "./AdditionalInfo";
 import styled from "styled-components";
 
 import { ADD_ITEM_ACTION, REMOVE_ITEM_ACTION } from "../../store/actions/favoritesActions";
-import { LOAD_ADDITIONAL_WORLD_ACTION } from "../../store/actions/sagaActions";
+import { LOAD_ADDITIONAL_WORLD_ACTION, LOAD_ADDITIONAL_FILMS_ACTION } from "../../store/actions/sagaActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const ItemDetail = ({ item, isMyFavorite }) => {
@@ -15,13 +15,14 @@ const ItemDetail = ({ item, isMyFavorite }) => {
 
 	useEffect(() => {
 		dispatch(LOAD_ADDITIONAL_WORLD_ACTION(item.homeworld));
+		dispatch(LOAD_ADDITIONAL_FILMS_ACTION(item.films));
 		
 	}, []);
 
 	
 
 	const homeworld = useSelector((state) => state.people.personHomeworld);
-	const films = useSelector((state) => state.people.films);
+	const films = useSelector((state) => state.people.personFilms);
 	
 
 	const { name, height, mass, heir_color, skin_color, eye_color, birth_year, gender } = item;
@@ -89,6 +90,7 @@ const ItemDetail = ({ item, isMyFavorite }) => {
 							{gender ? gender : '-'}
 						</ListGroup.Item>
 					</ListGroup>
+
 					<Tabs defaultActiveKey={false} id="person-tabs" className="mt-5">
 						<Tab eventKey="home" title="Homeworld">
 							<AdditionalInfo Info={homeworld} type='homeworld'></AdditionalInfo>

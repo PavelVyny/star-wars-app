@@ -4,7 +4,8 @@ import {
 	ADD_ITEM,
 	REMOVE_ITEM,
 	SET_SEARCH_VALUE,
-	PUT_ADDITIONAL_WORLD
+	PUT_ADDITIONAL_WORLD,
+	PUT_ADDITIONAL_FILMS
 
 } from "../actions/Types";
 import { add, remove } from "../../utils";
@@ -18,7 +19,7 @@ const initialState = {
 	favoritesList: [],
 	searchValue: '',
 	personHomeworld: '',
-	films: '',
+	personFilms: '',
 };
 
 export default function (state = initialState, action) {
@@ -45,6 +46,9 @@ export default function (state = initialState, action) {
 
 		case PUT_ADDITIONAL_WORLD:
 			return { ...state, personHomeworld: action.payload };
+
+		case PUT_ADDITIONAL_FILMS:
+			return { ...state, personFilms: action.payload };
 
 		default:
 			return state;
