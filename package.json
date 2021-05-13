@@ -1,4 +1,5 @@
 {
+  "homepage": "https://pavelvyny.github.io/star-wars-app",
   "name": "star-wars-app",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^13.1.8",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0",
+    "gh-pages": "^3.1.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
