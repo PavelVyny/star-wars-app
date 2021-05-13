@@ -91,7 +91,7 @@ const ItemDetail = ({ item, isMyFavorite }) => {
 						</ListGroup.Item>
 					</ListGroup>
 
-					<Tabs defaultActiveKey={false} id="person-tabs" className="mt-5">
+					<Tabs defaultActiveKey="home" id="person-tabs" className="mt-5">
 						<Tab eventKey="home" title="Homeworld">
 							<AdditionalInfo Info={homeworld} type='homeworld'></AdditionalInfo>
 						</Tab>
